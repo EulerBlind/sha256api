@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: device_manage_main
+    image: device_manage_main
+    ports:
+      - 8033:8000
+    command:
+      - ash
+      - -c
+      - |
+        uvicorn app.main:app --workers=4 --port=8000 --host=0.0.0.0
+    networks:
+      - sha256test
+
+networks:
+  sha256test:
+    external: true

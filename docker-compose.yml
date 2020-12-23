@@ -13,7 +13,7 @@ services:
       - ash
       - -c
       - |
-        uvicorn app.main:app --workers=4 --port=8000 --host=0.0.0.0
+        uvicorn sha256_api:app --workers=4 --port=8000 --host=0.0.0.0
     networks:
       - sha256test
 
